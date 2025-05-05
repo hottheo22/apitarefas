@@ -8,4 +8,4 @@ commands = [
 ]
 
 [start]
-command = "cd BACKEND && node index.js"
+command = "cd BACKEND && npm start"
