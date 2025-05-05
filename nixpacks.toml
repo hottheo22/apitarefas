@@ -1,0 +1,9 @@
+[phases.build]
+nixPkgs = ["nodejs"]
+
+[phases.build.commands]
+frontend = "cd FRONTEND && npm install && npm run build"
+backend = "cd BACKEND && npm install"
+
+[start]
+command = "cd BACKEND && node index.js"
