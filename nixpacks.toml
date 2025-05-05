@@ -1,9 +1,15 @@
-[phases.build]
-nixPkgs = ["nodejs"]
+[build]
+nixPkgs = ["nodejs"]  # Instala o Node.js
 
-[phases.build.commands]
-frontend = "cd FRONTEND && npm install && npm run build"
-backend = "cd BACKEND && npm install"
+[[phases]]
+name = "build"  # Fase de build
+
+  # Comandos executados em sequência:
+  [[phases.commands]]
+  command = "cd FRONTEND && npm install && npm run build -- --configuration=production"  # Build do Angular
+
+  [[phases.commands]]
+  command = "cd BACKEND && npm install"  # Instala dependências do backend
 
 [start]
-command = "cd BACKEND && node index.js"
+command = "cd BACKEND && node index.js"  # Comando de inicialização
